@@ -2,7 +2,7 @@
 
 # Self-Hosted CI/CD Pipeline
 
-This repository contains the code and configuration for a self-hosted CI/CD pipeline designed to build, push, and deploy container images to a Kubernetes cluster. The pipeline leverages Gitea for Git hosting and CI, Harbor for container registry, and ArgoCD for continuous deployment. You can view the blog post [here](https://khenry.substack.com/p/cicd)
+This repository contains the code and configuration for a self-hosted CI/CD pipeline designed to build, push, and deploy container images to a Kubernetes cluster. The pipeline leverages Gitea for Git hosting and CI, Harbor for container registry, and ArgoCD for continuous deployment. You can view the blog post [here.](https://khenry.substack.com/p/cicd)
 
 ## Overview
 

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: example
+          image: registry.home.example.com/example/example:0.1.3
+          resources:
+            requests:
+              cpu: 25m
+              memory: 8Mi
+            limits:
+              cpu: 50m
+              memory: 32Mi

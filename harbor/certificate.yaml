@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hardbor-cert 
+  namespace: harbor
+spec:
+  secretName: registry-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "registry.home.example.com"
+  dnsNames:
+  - "registry.home.example.com"

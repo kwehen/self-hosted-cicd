@@ -1,0 +1,26 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: harbor-route
+  namespace: harbor
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`registry.home.example.com`)
+    kind: Rule
+    services:
+    - name: harbor-portal
+      port: 80
+  - match: Host(`registry.home.example.com`) && PathPrefix(`/api/`, `/c/`, `/chartrepo/`, `/service/`, `/v2/`)
+    kind: Rule
+    services:
+    - name: harbor-core
+      port: 80
+  - match: Host(`notary.home.example.com`)
+    kind: Rule
+    services:
+    - name: harbor-notary-server
+      port: 4443
+  tls:
+    secretName: registry-tls

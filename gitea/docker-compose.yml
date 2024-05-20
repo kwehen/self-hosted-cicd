@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  runner:
+    image: gitea/act_runner:nightly
+    environment:
+      GITEA_INSTANCE_URL: "https://git.home.example.com"
+      GITEA_RUNNER_REGISTRATION_TOKEN: "INSERT_REGISTRATION_TOKEN"
+      GITEA_RUNNER_NAME: "gitea-runner-1"
+      GITEA_RUNNER_LABELS: "ubuntu-latest:docker://node:16-bullseye,ubuntu-22.04:docker://node:16-bullseye,ubuntu-20.04:docker://node:16-bullseye,ubuntu-18.04:docker://node:16-buster"
+    volumes:
+      - ./config.yaml:/config.yaml
+      - ./data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
